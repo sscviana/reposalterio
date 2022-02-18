@@ -1,0 +1,14 @@
+{
+  "name": "salterio",
+  "version": "1.0.0",
+  "description": "Saltério de bênçãos",
+  "main": "false",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sidney",
+  "license": "ISC",
+  "dependencies": {
+    "@hint/configuration-progressive-web-apps": "^7.0.10"
+  }
+}

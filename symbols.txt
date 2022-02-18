@@ -1,0 +1,4 @@
+&#9658;    - Triângulo direito preenchido
+&#9664;    - Triângulo esquerdo preenchido
+&#126982;  - Copy Symbol
+📋

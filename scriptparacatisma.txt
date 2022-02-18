@@ -1,0 +1,2 @@
+const person = [{salmo:"10", ini:0, age:0},{salmo:"11", ini:0, age:3}];
+document.getElementById("demo").innerHTML = person[1].salmo;
