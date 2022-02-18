@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <title>Saltério</title>
+  <link rel="icon" type="image/x-icon" href="favicon/favicon_salt.png">
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
+  <!-- Android Lolipop Theme Color -->
+  <meta name="theme-color" content="cor em hexadecimal">
+  <link rel="stylesheet" type="text/css" href="estilo1.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" sizes="512x512" href="images/app-icon-512x512.png">
+  <script type="module">
+    import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+    const el = document.createElement('pwa-update');
+    document.body.appendChild(el);
+  </script>
+</head>
+
+<script src="default.js" language="javascript" type="text/javascript">
+</script>
+<script src="salmo.js" language="javascript" type="text/javascript">
+</script>
+
+<!--
+//******************************************
+ // Tras os Mapas, o Iliteral JS para a página.
+//-******************************************
+	-->
+<script src="dicsalmosG.js" language="javascript" type="text/javascript"></script>
+<script src="dicsalmosH.js" language="javascript" type="text/javascript"></script>
+
+<body>
+
+  <div class="container-fluid">
+    <div id="header" class="header">Saltério </div>
+    <div class="header2">
+
+      Bendirei ao Senhor em todo o tempo; o seu louvor estará continuamente na minha boca.(Sl 34,1)
+
+    </div>
+
+
+    <!--Lado esquerdo da página-->
+    <!--			<input  onClick="fbmenu()"  id="bmenu" type="button"  value="&equiv;">-->
+    <!--Lado esquerdo da página-->
+    <div class="col-3 col-s-3 menu">
+      <ul>
+        <li id="lsalmos" onClick="lSalmos()">Salmos</li>
+        <li id="lcatismas" onClick="lCatismas()">Catisma</li>
+      </ul>
+
+    </div>
+
+    <!--Meio da Página /-->
+    <div id="divpesquisa" class="col-6 col-s-9">
+
+      <div id="idlersalmos" class="col-s-6">
+        <label for="nSalmo" class="alllab">Salmo:</label>
+
+        <input type="number" style="height: 25px;font-size: .92em;width:80px;" id="nSalmo" class="input1"
+          list="listsalmos" size="3" tabindex="1" onkeydown="Fsalmo(event)" onChange="LerSalmo()" />
+
+        <script>
+
+          //--gerar lista de Salmos
+          let linha1 = '<datalist id="listsalmos">\r\n';
+          let linhaf = '</datalist>\r\n';
+          let lista = "";
+          for (i = 1; i < 151; i++) {
+            lista += '<option value="' + i + '">' + i + '</option>\r\n';
+          }
+          lista = linha1 + lista + linhaf
+          let ele1 = document.querySelector("#nSalmo");
+          document.write(lista);
+        </script>
+
+
+        <input type="text" value=" " id="verb" style="display: none;">
+
+      </div>
+
+
+       <div id="idversoes" align="center" style="align-items: center;">			<table  id="tabver">
+
+
+
+						<tr id="trtitver" >
+
+							<td style="padding-left:  5px;padding-right:  5px; padding-top:   2px;">Tradução Salmo</td>
+
+							<td><span id="divcirc" onClick="FhelpVer()" >&quest;</span></td>
+
+					  </tr>
+
+					<tbody>
+
+						<tr>
+
+							<td>Hebraico</td>
+
+							<td onclick="fsetver('H')"  ><span id="theb"  ></span>
+
+							</td>
+
+
+
+
+
+						</tr>
+
+						<tr>
+
+							<td>Grego</td>
+
+							<td onclick="fsetver('G')" > <span id="tgeg" ></span> </td>
+
+
+
+						</tr>
+
+					</tbody>
+
+					</table>
+            <script>
+                //--Define a tradução Hebraica para Default
+                //--cria novo evento onclick no Span e chama a função fsetver
+                var atual = document.getElementById('theb');
+                atual.addEventListener('onclick', function(){fsetver('H') });
+                atual.dispatchEvent(new Event('onclick'));
+           </script>
+				  <table id="tabelahelp" height="600px" >
+
+						<tr>
+
+				  			<td>
+
+								<div id="barrahelp">
+
+								<span id="spclose" onClick="FhelpVerX()">&#10006;</span>
+
+				  				</div>
+
+							</td>
+
+						</tr>
+
+
+
+
+
+						<tr>
+
+							<td>
+
+								    <div id="helpver">
+
+					  <h4>Traduções e variações</h4>
+
+
+
+
+
+						<p>O livro dos Salmos chegou até nós em sua versão grega (Septuaginta) e hebraica. A versão grega deste livro, como de toda a Bíblia, foi utilizada pelos cristãos convertidos e por Jerônimo de Estridão na confecção de sua edição "Vulgata", tradução latina dos livros inspirados. Na Reforma Protestante é que se buscaram os manuscritos originais hebraicos para fazer novas traduções e foi constatada a diferença que havia entre as duas traduções: as versões, apesar de terem o texto completo, diferem na numeração de capítulos e versículos.</p>
+
+
+
+						<h4>Versículos</h4>
+
+						<p>A versão grega costuma apresentar, na maioria dos salmos, um versículo de introdução, em que são atribuídas autorias e apontados instrumentos que deveriam ser utilizados ao se cantar os textos. Este versículo faz com que a versão hebraica tenha, nesses casos, um versículo a menos, uma vez que essas informações não são consideradas inspiradas por essa versão.</p>
+
+
+
+						<h4>Capítulos</h4>
+
+				  <p> Em suma, pode-se dizer que entre os Salmos 10 e 148, a numeração da Bíblia Hebraica está uma unidade à frente da numeração seguida na Septuaginta e na Vulgata, que juntam: os Salmos 9 e 10 no Salmo 9 (da Septuaginta/Vulgata), e, os Salmos 114 e 115 no Salmo 113 (da Septuaginta/Vulgata); e dividem: o Salmo 116 nos Salmos 114 e 115 (da Septuaginta/Vulgata), e, o o Salmo 147 nos Salmos 146 e 148 (da Septuaginta/Vulgata).</p>
+
+
+
+						 <p> A tabela abaixo exibe uma comparação </p>
+
+						<p>
+
+					<table align="center" id="tabhelp" >
+
+
+
+        				<tbody>
+
+            				<tr>
+
+               					 <td>Texto hebraico</td>
+
+                				<td>
+
+                    				Texto grego
+
+                				</td>
+
+            				</tr>
+
+           					 <tr>
+
+                				<td>1 a 8</td>
+
+                				<td>
+
+                   					1 a 8
+
+                				</td>
+
+            					</tr>
+
+            					<tr>
+
+               						 <td>9 e 10</td>
+
+                					<td>9 </td>
+
+            					</tr>
+
+            					<tr>
+
+                					<td>11 a 113</td>
+
+                					<td>10 a 112 </td>
+
+            					</tr>
+
+            					<tr>
+
+                					<td>114 e 115</td>
+
+                					<td>113</td>
+
+            					</tr>
+
+            					<tr>
+
+                					<td>116</td>
+
+                					<td>114 e 115</td>
+
+            					</tr>
+
+            					<tr>
+
+                					<td>117 a 146</td>
+
+                					<td>116 a 145 </td>
+
+            					</tr>
+
+            					<tr>
+
+                					<td>147</td>
+
+                					<td>146 e 147</td>
+
+            					</tr>
+
+            					<tr>
+
+                					<td>148 a 150</td>
+
+                					<td>148 a 150  </td>
+
+            					</tr>
+
+        				</tbody>
+
+    				</table>
+
+					</p>
+
+				  <p align="left">(Fonte Wikipedia)</p>
+
+
+
+
+
+                  </div>
+
+
+					  	</td>
+
+					</tr>
+
+					</table>
+
+
+				</div>
+
+
+    <div id="DivSalmo"> </div>
+</div>
+
+  <!--
+     :------------------------------------------:
+     :------------ Catisma ---------------------:
+     :------------------------------------------:
+     -->
+  <div id="divtabcatisma" class="col-6 col-s-9 col-9">
+    <table id='tabcatisma'>
+      <thead>
+        <th colspan="4">
+          Catisma
+        </th>
+
+      </thead>
+      <thead id="tr1" disabled>
+        <th contenteditable="false">Dia</th>
+
+        <th> Stasis 1</th>
+
+        <th>Stasis 2</th>
+        <th> Stasis 3</th>
+
+      </thead>
+      <tr>
+        <td id='diast0_1'>1</td>
+
+        <td id='1_1' onclick='fdiacatisma(1_1)'>1-3</td>
+
+        <td id='1_2' onclick='fdiacatisma(1_2)'>4-6</td>
+
+        <td id='1_3' onclick='fdiacatisma(1_3)'>7-8</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_2'>2</td>
+
+        <td id='2_1' onclick='fdiacatisma(2_1)'>9-11</td>
+
+        <td id='2_2' onclick='fdiacatisma(2_2)'>12-14</td>
+
+        <td id='2_3' onclick='fdiacatisma(2_3)'>15-17</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_3'>3</td>
+
+        <td id='3_1' onclick='fdiacatisma(3_1)'>18</td>
+
+        <td id='3_2' onclick='fdiacatisma(3_2)'>19-21</td>
+
+        <td id='3_3' onclick='fdiacatisma(3_3)'>22-24</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_4'>4</td>
+
+        <td id='4_1' onclick='fdiacatisma(4_1)'>25-27</td>
+
+        <td id='4_2' onclick='fdiacatisma(4_2)'>28-30</td>
+
+        <td id='4_3' onclick='fdiacatisma(4_3)'>31-32</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_5'>5</td>
+
+        <td id='5_1' onclick='fdiacatisma(5_1)'>33-34</td>
+
+        <td id='5_2' onclick='fdiacatisma(5_2)'>35-36</td>
+
+        <td id='5_3' onclick='fdiacatisma(5_3)'>37</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_6'>6</td>
+
+        <td id='6_1' onclick='fdiacatisma(6_1)'>38-40</td>
+
+        <td id='6_2' onclick='fdiacatisma(6_2)'>41-43</td>
+
+        <td id='6_3' onclick='fdiacatisma(6_3)'>44-46</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_7'>7</td>
+
+        <td id='7_1' onclick='fdiacatisma(7_1)'>47-49</td>
+
+        <td id='7_2' onclick='fdiacatisma(7_2)'>50-51</td>
+
+        <td id='7_3' onclick='fdiacatisma(7_3)'>52-55</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_8'>8</td>
+
+        <td id='8_1' onclick='fdiacatisma(8_1)'>56-58</td>
+
+        <td id='8_2' onclick='fdiacatisma(8_2)'>59-61</td>
+
+        <td id='8_3' onclick='fdiacatisma(8_3)'>62-64</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_9'>9</td>
+
+        <td id='9_1' onclick='fdiacatisma(9_1)'>65-67</td>
+
+        <td id='9_2' onclick='fdiacatisma(9_2)'>68</td>
+
+        <td id='9_3' onclick='fdiacatisma(9_3)'>69-70</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_10'>10</td>
+
+        <td id='10_1' onclick='fdiacatisma(10_1)'>71-72</td>
+
+        <td id='10_2' onclick='fdiacatisma(10_2)'>73-74</td>
+
+        <td id='10_3' onclick='fdiacatisma(10_3)'>75-77</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_11'>11</td>
+
+        <td id='11_1' onclick='fdiacatisma(11_1)'>78</td>
+
+        <td id='11_2' onclick='fdiacatisma(11_2)'>79-81</td>
+
+        <td id='11_3' onclick='fdiacatisma(11_3)'>82-85</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_12'>12</td>
+
+        <td id='12_1' onclick='fdiacatisma(12_1)'>86-88</td>
+
+        <td id='12_2' onclick='fdiacatisma(12_2)'>89</td>
+
+        <td id='12_3' onclick='fdiacatisma(12_3)'>90-91</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_13'>13</td>
+
+        <td id='13_1' onclick='fdiacatisma(13_1)'>92-94</td>
+
+        <td id='13_2' onclick='fdiacatisma(13_2)'>95-97</td>
+
+        <td id='13_3' onclick='fdiacatisma(13_3)'>98-101</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_14'>14</td>
+
+        <td id='14_1' onclick='fdiacatisma(14_1)'>102-103</td>
+
+        <td id='14_2' onclick='fdiacatisma(14_2)'>104</td>
+
+        <td id='14_3' onclick='fdiacatisma(14_3)'>105</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_15'>15</td>
+
+        <td id='15_1' onclick='fdiacatisma(15_1)'>106</td>
+
+        <td id='15_2' onclick='fdiacatisma(15_2)'>107</td>
+
+        <td id='15_3' onclick='fdiacatisma(15_3)'>108-109</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_16'>16</td>
+
+        <td id='16_1' onclick='fdiacatisma(16_1)'>110-112</td>
+
+        <td id='16_2' onclick='fdiacatisma(16_2)'>113-116:9</td>
+
+        <td id='16_3' onclick='fdiacatisma(16_3)'>116:10-118</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_17'>17</td>
+
+        <td id='17_1' onclick='fdiacatisma(17_1)'>119:1-72</td>
+
+        <td id='17_2' onclick='fdiacatisma(17_2)'>119:73-131</td>
+
+        <td id='17_3' onclick='fdiacatisma(17_3)'>119:132-176</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_18'>18</td>
+
+        <td id='18_1' onclick='fdiacatisma(18_1)'>120-124</td>
+
+        <td id='18_2' onclick='fdiacatisma(18_2)'>125-129</td>
+
+        <td id='18_3' onclick='fdiacatisma(18_3)'>130-134</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_19'>19</td>
+
+        <td id='19_1' onclick='fdiacatisma(19_1)'>135-137</td>
+
+        <td id='19_2' onclick='fdiacatisma(19_2)'>138-140</td>
+
+        <td id='19_3' onclick='fdiacatisma(19_3)'>141-143</td>
+
+      </tr>
+      <tr>
+        <td id='diast0_20'>20</td>
+
+        <td id='20_1' onclick='fdiacatisma(20_1)'>144-145</td>
+
+        <td id='20_2' onclick='fdiacatisma(20_2)'>146-147</td>
+
+        <td id='20_3' onclick='fdiacatisma(20_3)'>148-150</td>
+
+      </tr>
+    </table>
+  </div>
+  <div id="divcatismas" class="col-6 col-s-9">
+
+    <span id="tcatismas">Catisma &nbsp;<span style="color:red;">em construção</span> </span>
+
+    <p>Um catisma ou kathisma (em grego: κάθισμα, em antigo eslavo eclesiástico: каѳисма) é uma divisão do saltério,
+      usada pela Igreja Ortodoxa e pelos católicos orientais do rito bizantino.</p>
+    <p>Aqui neste site será apresentado o Catisma com o período de vinte dias e com aproximadamente nove salmos por dia,
+      sendo três em um primeiro período, três em um segundo período, e outros três em um período final do dia e assim
+      continuando dia-a-dia até atingir vinte dias e cento e ciquenta Salmos, depois recomeçando o dia um novamente, e
+      assim, todos os demais dias. Dizem também haver este exercício para que o orante possa aprender e guardar no
+      coração todos os Salmos bíblicos e para que os iletrados possam, mesmo sem ler, saber orar cada Salmo. É oração
+      sem cessar de todos os Salmos, distribuídos em vinte dias, como já disse. </p>
+    <p> Durante um dia reza-se em média nove Salmos, de preferência pela manhã, meio do dia, e tarde ou noite, três
+      Salmos em cada período. Cada período destes são chamados de "estases" ou "staseis". Isso foi criado por monges da
+      Igreja Ortodoxa, no monaquismo da Igreja Católica Ortodoxa e vivenciado também nas Igrejas Católicas do Rito
+      Bizantino. Antes dessa divisão ocorrida todos os Salmos eram rezados em um único dia pelos Pais do Deserto, mas
+      para melhor adaptação ao Ofício das Horas foi realizado essa organização do Catisma e seus estases. (Fonte
+      Wikipedia)</p>
+
+  </div>
+
+  <div div id="divdiacatismas" class="col-6 col-s-9">
+    <span id="ttcatismas"> Dia</span>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  </div>
+
+</body>
+
+</html>
